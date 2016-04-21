@@ -1,0 +1,22 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "nombreEquipo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "fechaCreacion",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20160312173342",
+    "dto": "no",
+    "service": "no",
+    "pagination": "infinite-scroll"
+}

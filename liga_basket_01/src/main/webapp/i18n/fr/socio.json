@@ -1,0 +1,25 @@
+{
+    "ligaBasket01App": {
+        "socio" : {
+            "home": {
+                "title": "Socios",
+                "createLabel": "Créer un nouveau Socio",
+                "createOrEditLabel": "Créer ou éditer un Socio",
+                "search": "Search for Socio"
+            },
+            "created": "Un nouveau Socio a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Socio avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Socio avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Socio {{ id }} ?"
+            },
+            "detail": {
+                "title": "Socio"
+            },
+            "nombreSocio": "NombreSocio",
+            "direccion": "Direccion",
+            "asociado": "Asociado"
+        }
+    }
+}
+

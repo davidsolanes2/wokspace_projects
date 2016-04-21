@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>jugadorsTabla.html</title>
+    </head>
+    <body>
+    <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th translate="global.field.id">Nº Iden.</th>
+                        <th translate="ligaBasket01App.jugador.nombreJugador">Nombre</th>
+                        <th translate="ligaBasket01App.jugador.fechaNacimiento">Fecha Nacimiento</th>
+                        <th translate="ligaBasket01App.jugador.posicion">Posicion</th>
+                        <th translate="ligaBasket01App.jugador.numCanastas">Total Canastas</th>
+                        <th translate="ligaBasket01App.jugador.numAsistencias">Total Asistencias</th>
+                        <th translate="ligaBasket01App.jugador.numRebotes">Total Rebotes</th>
+                        <th translate="ligaBasket01App.jugador.juegan">Juegan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="jugador in savedPlayers track by jugador.id">
+                        <td><a ui-sref="jugador.detail({id:jugador.id})">{{jugador.id}}</a></td>
+                        <td>{{jugador.nombreJugador}}</td>
+                        <td>{{jugador.fechaNacimiento | date:'mediumDate'}}</td>
+                        <td>{{jugador.posicion}}</td>
+                        <td>{{jugador.numCanastas}}</td>
+                        <td>{{jugador.numAsistencias}}</td>
+                        <td>{{jugador.numRebotes}}</td>
+                        <td><a ui-sref="equipo.detail({id:jugador.equipo.id})">{{jugador.juegan.nombreEquipo}}</a></td>
+                        <td>
+                            <button type="submit" ui-sref="jugador.detail({id:jugador.id})" class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>&nbsp;
+                                <span translate="entity.action.view"> Vista</span>
+                            </button>
+                            <button type="submit" ui-sref="jugador.edit({id:jugador.id})" class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>&nbsp;
+                                <span translate="entity.action.edit"> Edicion</span>
+                            </button>
+                            <button type="submit" ui-sref="jugador.delete({id:jugador.id})" class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;
+                                <span translate="entity.action.delete"> Borrar</span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        <nav>
+            <ul class="pagination">
+                <li ng-show="links['first']>=0" ng-click="loadPage(links['first'])"><a>&lt;&lt;</a></li>
+                <li ng-show="page > 0" ng-click="loadPage(links['prev'] || 0)"><a>&lt;</a></li>
+                <li ng-show="page > 1" ng-click="loagPage(page - 2)"><a>{{page - 1}}</a></li>
+                <li ng-show="page > 0" ng-click="loadPage(page - 1)"><a>{{page}}</a></li>
+                <li class="active"><a>{{page + 1}}</a></li>
+                <li ng-show="page < links['last']" ng-click="loadPage(page + 1)">{{page + 2}}</li>
+                <li ng-show="page < links['last'] - 1" ng-click="loadPage(page + 2)"><a>{{page + 3}}</a></li>
+                <li ng-show="links['next']" ng-click="loadPage(links['next'])"><a>&gt;</a></li>
+                <li ng-show="links['last'] > 0" ng-click="loadPage(links['last'])"><a>&gt;&gt;</a></li>
+            </ul>
+        </nav>
+            <button type="submit" onclick="window.history.back()" class="btn btn-info">
+                <span class="glyphicon.glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back">Back</span>
+            </button>
+        </div>
+    </body>
+</html>

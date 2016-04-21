@@ -1,0 +1,22 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "entrena",
+            "otherEntityName": "equipo",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "nombreEquipo"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "nombreEntrenador",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160312183433",
+    "dto": "no",
+    "service": "no",
+    "pagination": "infinite-scroll"
+}

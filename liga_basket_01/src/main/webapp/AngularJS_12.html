@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    table, td {
+        border: 1px solid grey;
+        border-collapse: collapse;
+        padding: 5px;
+    }
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS_12</title>
+</head>
+<body>
+<div ng-app="ligaBasket01App" ng-controller="JugadorCtrl">
+    <table>
+        <tr>
+            <td style="background-color: burlywood">{{"Jugador"}}</td>
+            <td style="background-color: burlywood">{{"Posicion"}}</td>
+            <td style="background-color: burlywood">{{"Canastas"}}</td>
+        </tr>
+        <tr ng-repeat="x in myData" ng-show="x.numCanastas > 32">
+            <td ng-if="$odd" style="background-color: #ffec34">
+                {{x.nombreJugador}}</td>
+            <td ng-if="$even">
+                {{x.nombreJugador}}</td>
+            <td ng-if="$odd" style="background-color: #ffec34">
+                {{x.posicion}}</td>
+            <td ng-if="$even">
+                {{x.posicion}}</td>
+            <td ng-if="$odd" style="background-color: #ffec34">
+                {{x.numCanastas}}</td>
+            <td ng-if="$even">
+                {{x.numCanastas}}</td>
+        </tr>
+    </table>
+</div>
+<script>
+    var app = angular.module('ligaBasket01App', []);
+    app.controller('JugadorCtrl', function ($scope, $http) {
+        $http.get("api/jugadors").then(function (response) {
+            $scope.myData = response.data;
+        });
+    });
+</script>
+</body>
+</html>

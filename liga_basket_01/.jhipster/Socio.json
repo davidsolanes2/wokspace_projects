@@ -1,0 +1,27 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "asociado",
+            "otherEntityName": "equipo",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "nombreEquipo"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "nombreSocio",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "direccion",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160312175502",
+    "dto": "no",
+    "service": "no",
+    "pagination": "infinite-scroll"
+}

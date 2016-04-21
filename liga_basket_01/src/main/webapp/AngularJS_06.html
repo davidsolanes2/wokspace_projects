@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<head>
+    <title>AngularJS_06</title>
+</head>
+<body>
+<div ng-app="ligaBasket01App" ng-controller="myCtrl">
+    <label>
+        <input ng-model="nombre"/>
+    </label>
+
+    <h1>El Nombre del jugador es {{nombre}}</h1>
+</div>
+<script>
+    var app = angular.module('ligaBasket01App',[]);
+    app.controller('myCtrl', function($scope){
+        $scope.nombre ='David';
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<div>
+    <h2 translate="ligaBasket01App.jugador.home.title">Jugadors</h2>
+    <jh-alert></jh-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="jugador.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span
+                        translate="ligaBasket01App.jugador.home.createLabel">Create new Jugador
+                    </span>
+                </button>
+                <button class="btn btn-primary" ui-sref="topPlayers">
+                    <span class="glyphicon glyphicon-flash"></span>
+                    <span>Top Players</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="predicate" ascending="reverse" callback="reset()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nombreJugador"><span translate="ligaBasket01App.jugador.nombreJugador">NombreJugador</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="fechaNacimiento"><span translate="ligaBasket01App.jugador.fechaNacimiento">FechaNacimiento</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="numCanastas"><span translate="ligaBasket01App.jugador.numCanastas">NumCanastas</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="numAsistencias"><span translate="ligaBasket01App.jugador.numAsistencias">NumAsistencias</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="numRebotes"><span translate="ligaBasket01App.jugador.numRebotes">NumRebotes</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="posicion"><span translate="ligaBasket01App.jugador.posicion">Posicion</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="juegan"><span translate="ligaBasket01App.jugador.juegan">Juegan</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll="loadPage(page + 1)" infinite-scroll-disabled="links['last'] == page">
+                <tr ng-repeat="jugador in jugadors track by jugador.id">
+                    <td><a ui-sref="jugador.detail({id:jugador.id})">{{jugador.id}}</a></td>
+                    <td>{{jugador.nombreJugador}}</td>
+                        <td>{{jugador.fechaNacimiento | date:'mediumDate'}}</td>
+                    <td>{{jugador.numCanastas}}</td>
+                    <td>{{jugador.numAsistencias}}</td>
+                    <td>{{jugador.numRebotes}}</td>
+                    <td>{{jugador.posicion}}</td>
+                    <td>
+                        <a ui-sref="equipo.detail({id:jugador.equipo.id})">{{jugador.juegan.nombreEquipo}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="jugador.detail({id:jugador.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="jugador.edit({id:jugador.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="jugador.delete({id:jugador.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

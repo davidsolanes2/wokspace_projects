@@ -1,0 +1,10 @@
+auto_escuela-postgresql:
+  container_name: auto_escuela-postgresql
+  image: postgres:9.4.5
+  # volumes:
+  #   - ~/volumes/jhipster/auto_escuela/postgresql/:/var/lib/postgresql/
+  environment:
+    - POSTGRES_USER=auto_escuela
+    - POSTGRES_PASSWORD=
+  ports:
+    - "5432:5432"

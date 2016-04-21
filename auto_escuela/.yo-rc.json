@@ -1,0 +1,24 @@
+{
+  "generator-jhipster": {
+    "baseName": "auto_escuela",
+    "packageName": "com.mycompany.myapp",
+    "packageFolder": "com/mycompany/myapp",
+    "authenticationType": "session",
+    "hibernateCache": "ehcache",
+    "clusteredHttpSession": "no",
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": "no",
+    "useSass": false,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "enableTranslation": false,
+    "enableSocialSignIn": false,
+    "rememberMeKey": "dae4f2b6852d1abb22ee2dc4ae67b37d5e2fcd96",
+    "testFrameworks": [
+      "gatling"
+    ]
+  }
+}

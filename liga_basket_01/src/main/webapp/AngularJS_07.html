@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>AngularJS_07</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+
+</head>
+
+<body>
+    <div ng-app="ligaBasket01App" ng-controller="jugadorCtrl">
+      <ul>
+        <li ng-repeat="x in myData">
+            {{ x.nombreJugador + ', ' + x.posicion }}
+        </li>
+      </ul>
+    </div>
+    <script>
+     var app = angular.module("ligaBasket01App", []);
+       app.controller('jugadorCtrl', function ($scope, $http) {
+          $http.get("api/jugadors").then(function (response) {
+             $scope.myData = response.data;
+         });
+     });
+    </script>
+
+</body>
+</html>
