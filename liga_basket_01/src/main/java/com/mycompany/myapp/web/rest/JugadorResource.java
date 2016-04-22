@@ -128,4 +128,18 @@ public class JugadorResource {
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/jugadors/topPlayers");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
+
+    /**
+     *  consulta del max de asistencias
+     */
+    @RequestMapping(value = "/topAsistencias/{asistencias}",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public  ResponseEntity<List<Jugador>> topAsistencias(@PathVariable Integer asistencias, Pageable pageable)
+        throws URISyntaxException {
+        Page<Jugador> page = jugadorRepository.topAsistencias(asistencias, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/jugadors/topAsistencias");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
 }

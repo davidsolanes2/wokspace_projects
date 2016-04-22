@@ -149,4 +149,29 @@ angular.module('ligaBasket01App')
                 }
 
             })
+
+            .state('topAsistencias', {
+                parent: 'entity',
+                url:'/jugadors/topAsistencias',
+                data: {
+                    authorities: ['ROLE_USER'],
+                    pageTitle: 'ligaBasket01App.jugador.detail.title'
+                },
+                views: {
+                    'content@': {
+                        templateUrl: 'scripts/app/entities/jugador/jugadorsTabla.html',
+                        controller: 'TopAsistenciasController'
+                    }
+                },
+                resolve: {
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('jugador');
+                        return $translate.refresh();
+                    }],
+                    entity: ['$stateParams', 'Jugador', function($stateParams, Jugador) {
+                        return Jugador.topAsistencias({asistencias : 50});
+                    }]
+                }
+
+            })
     });

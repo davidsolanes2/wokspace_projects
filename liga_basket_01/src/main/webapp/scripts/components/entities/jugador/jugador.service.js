@@ -33,6 +33,14 @@ angular.module('ligaBasket01App')
                         return response.resource;
                     }
                 }
+            },
+            'topAsistencias': { method: 'GET', isArray: true, url: 'api/topAsistencias/:asistencias',
+                interceptor: {
+                    response: function (response) {
+                        response.resource.$httpHeaders = response.headers;
+                        return response.resource;
+                    }
+                }
             }
         });
     });

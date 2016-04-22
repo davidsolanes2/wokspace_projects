@@ -17,4 +17,7 @@ public interface JugadorRepository extends JpaRepository<Jugador,Long> {
     @Query("select jugador from Jugador jugador where jugador.numCanastas >=:canastas")
     Page<Jugador> topPlayers(@Param("canastas") Integer canastas, Pageable pageable);
 
+    @Query("select jugador from Jugador jugador where jugador.numAsistencias >=:asistencias")
+    Page<Jugador> topAsistencias(@Param("asistencias") Integer asistencias, Pageable pageable);
+
 }
